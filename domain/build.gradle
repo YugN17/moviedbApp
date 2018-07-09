@@ -1,0 +1,22 @@
+apply plugin: 'java-library'
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.google.dagger:dagger:2.8'
+    provided 'com.google.dagger:dagger-compiler:2.8'
+
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
